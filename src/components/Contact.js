@@ -1,6 +1,58 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { db } from '../firebase'
+import { set, ref } from 'firebase/database'
+import { uid } from "uid"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Contact() {
+    const [formData, setFormData] = useState(
+        {
+            name: "",
+            email: "",
+            subject: "",
+            comments: ""
+        }
+    )
+
+    function handleChange(event) {
+        const { name, value, type } = event.target
+        setFormData(prevFormData => {
+            return {
+                ...prevFormData,
+                [name]: value
+            }
+        })
+    }
+
+    function handleSubmit(event) {
+        event.preventDefault()
+        const uuid = uid()
+        set(ref(db, `/${uuid}`), {
+            formData,
+            uuid,
+        });
+
+        setFormData({
+            name: "",
+            email: "",
+            subject: "",
+            comments: ""
+        })
+
+        // Toast Emitter
+        toast.success('Message Sent Successfully!', {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            });
+    }
+
     return (
         <div>
             {/* <!-- CONTACT START --> */}
@@ -48,18 +100,33 @@ export default function Contact() {
                                 <div className="col-lg-8">
                                     <div className="custom-form">
                                         <div id="message"></div>
-                                        <form name="contact-form" id="contact-form">
+                                        <form name="contact-form" id="contact-form" onSubmit={handleSubmit}>
                                             <div className="row">
                                                 <div className="col-lg-6">
                                                     <div className="form-group">
-                                                        <input name="name" id="name" type="text" className="form-control"
-                                                            placeholder="Your name..." required />
+                                                        <input
+                                                            name="name"
+                                                            id="name"
+                                                            type="text"
+                                                            className="form-control"
+                                                            placeholder="Your name..."
+                                                            onChange={handleChange}
+                                                            value={formData.name}
+                                                            required
+                                                        />
                                                     </div>
                                                 </div>
                                                 <div className="col-lg-6">
                                                     <div className="form-group">
-                                                        <input name="email" id="email" type="email" className="form-control"
-                                                            placeholder="Your email..." required />
+                                                        <input
+                                                            name="email"
+                                                            id="email"
+                                                            type="email"
+                                                            className="form-control"
+                                                            placeholder="Your email..."
+                                                            onChange={handleChange}
+                                                            value={formData.email}
+                                                            required />
                                                     </div>
                                                 </div>
                                             </div>
@@ -67,8 +134,15 @@ export default function Contact() {
                                             <div className="row">
                                                 <div className="col-lg-12">
                                                     <div className="form-group">
-                                                        <input name="text" id="sub" type="text" className="form-control"
-                                                            placeholder="Your subject..." required />
+                                                        <input
+                                                            name="subject"
+                                                            id="sub"
+                                                            type="text"
+                                                            className="form-control"
+                                                            placeholder="Your subject..."
+                                                            required
+                                                            onChange={handleChange}
+                                                            value={formData.subject} />
                                                     </div>
                                                 </div>
                                             </div>
@@ -76,16 +150,24 @@ export default function Contact() {
                                             <div className="row">
                                                 <div className="col-lg-12">
                                                     <div className="form-group">
-                                                        <textarea name="comments" id="comments" rows="4" className="form-control"
-                                                            placeholder="Your message..." required></textarea>
+                                                        <textarea
+                                                            name="comments"
+                                                            id="comments"
+                                                            rows="4"
+                                                            className="form-control"
+                                                            placeholder="Your message..."
+                                                            required
+                                                            onChange={handleChange}
+                                                            value={formData.comments}
+                                                        >
+                                                        </textarea>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div className="row mt-3">
                                                 <div className="col-lg-12">
                                                     <input type="submit" id="submit" name="send"
-                                                        className="submitBnt btn btn-custom" value="Send Message"
-                                                        onClick="validateForm();" />
+                                                        className="submitBnt btn btn-custom" value="Send Message" />
                                                     <div id="simple-msg"></div>
                                                 </div>
                                             </div>
@@ -99,6 +181,20 @@ export default function Contact() {
                 </div>
             </section>
             {/* <!-- CONTACT END --> */}
+
+            {/* Toast Message Container */}
+            <ToastContainer
+                position="top-center"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
         </div>
     )
 }

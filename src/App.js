@@ -4,11 +4,11 @@ import CTA from "./components/CTA";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
-import Portfolio from "./components/Portfolio";
 import Team from "./components/Team";
 import Welcome from "./components/Welcome";
 import './assets/css/style.css'
 import './assets/css/owl.transitions.css'
+import Gallery from "./components/Gallery";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
       <Navbar />
       <Home />
       <Welcome />
-      <Portfolio />
+      <Gallery />
       <Client />
       <Team />
       <CTA />

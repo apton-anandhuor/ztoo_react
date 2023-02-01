@@ -128,6 +128,7 @@ p{
 
 .btn:hover {
     transform: translate3d(0,-3px,0);
+    background: #3864f3;
 }
 
 .btn-sm {
