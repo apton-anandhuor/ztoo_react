@@ -1,6 +1,66 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { db } from '../firebase'
+import { set, ref } from 'firebase/database'
+import { uid } from "uid"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import emailjs from '@emailjs/browser';
+import { useRef } from 'react';
 
 export default function Home() {
+    const formRef = useRef();
+    const [subFormData, setSubFormData] = useState(
+        {
+            to_email: "",
+        }
+    )
+
+    function handleChange(event) {
+        const { name, value } = event.target
+        setSubFormData(prevFormData => {
+            return {
+                ...prevFormData,
+                [name]: value
+            }
+        })
+    }
+
+    function handleSubmit(event) {
+        event.preventDefault()
+        const uuid = uid()
+        set(ref(db, `/${uuid}`), {
+            subFormData,
+            uuid
+        });
+
+        setSubFormData({
+            to_email: "",
+        })
+
+        console.log(subFormData)
+
+        // emailjs
+
+        emailjs.sendForm('service_42k8hkj', 'template_m8rt5k8', formRef.current, 'KKZOtl3ghYad2H7Mq')
+            .then((result) => {
+                console.log(result.text);
+            }, (error) => {
+                console.log(error.text);
+            });
+
+        // Toast Emitter
+        toast.success('Subscribed Successfully!', {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+    }
+
     return (
         <div>
             {/* <!-- HOME START--> */}
@@ -18,9 +78,16 @@ export default function Home() {
                                     <p className="home-desc mx-auto mt-3">We help teams create change that matters, from zero to one
                                     </p>
                                     <div className="text-center subcribe-form mt-5">
-                                        <form>
-                                            <input type="text" placeholder="E-mail" id="subEmail" />
-                                            <button type="submit" className="btn btn-custom" onClick="subscribe();">SEE THE
+                                        <form onSubmit={handleSubmit} ref={formRef}>
+                                            <input
+                                                type="email"
+                                                placeholder="E-mail"
+                                                id="subEmail"
+                                                name="to_email"
+                                                onChange={handleChange}
+                                                value={subFormData.to_email}
+                                                required />
+                                            <button type="submit" className="btn btn-custom">SEE THE
                                                 DEMO</button>
                                         </form>
                                     </div>
