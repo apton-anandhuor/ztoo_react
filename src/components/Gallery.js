@@ -5,56 +5,56 @@ function Gallery() {
   const galleryImages = [
     {
       id: 1,
-      img: 'https://ztooanalytics.web.app/images/portfolio/work-1.jpg',
+      img: 'https://i.postimg.cc/8z30JNT4/work-1.jpg',
       title: 'Shopify Store Analytics',
       description: 'Analyze and improve key metrics for your shopify store',
       category: 'restaurant'
     },
     {
       id: 2,
-      img: "https://ztooanalytics.web.app/images/portfolio/work-8.jpg",
+      img: "https://i.postimg.cc/vTZBNpc1/work-8.jpg",
       title: 'Restaurant Analytics',
       description: 'Analyze POS system data to improve efficiency',
       category: 'e-commerce'
     },
     {
       id: 3,
-      img: "https://ztooanalytics.web.app/images/portfolio/work-3.jpg",
+      img: "https://i.postimg.cc/HkcJHD3X/work-3.jpg",
       title: 'Customer Analytics',
       description: 'Discover customer behavior and trends',
       category: 'e-commerce'
     },
     {
       id: 4,
-      img: "https://ztooanalytics.web.app/images/portfolio/work-2.jpg",
+      img: "https://i.postimg.cc/DZg052yk/work-2.jpg",
       title: 'Social Media Analytics',
       description: 'Analyze KPIs of Marketing Campaigns to increase revenue growth',
       category: 'restaurant'
     },
     {
       id: 5,
-      img: "https://ztooanalytics.web.app/images/portfolio/work-6.jpg",
+      img: "https://i.postimg.cc/9FfR8q7x/work-6.jpg",
       title: 'Internet of Things',
       description: 'Industrial IOT sensor data analytics',
       category: 'iot'
     },
     {
       id: 6,
-      img: "https://ztooanalytics.web.app/images/portfolio/work-5.jpg",
+      img: "https://i.postimg.cc/bJ8dQGP9/work-5.jpg",
       title: 'Clean Energy',
       description: 'Accelerate adoption of clean energy',
       category: 'restaurant'
     },
     {
       id: 7,
-      img: "https://ztooanalytics.web.app/images/portfolio/work-7.jpg",
+      img: "https://i.postimg.cc/d3skKhSV/work-7.jpg",
       title: 'EV Analytics',
       description: 'Manage EV fleet and V2X capabilities',
       category: 'restaurant'
     },
     {
       id: 8,
-      img: "https://ztooanalytics.web.app/images/portfolio/work-4.jpg",
+      img: "https://i.postimg.cc/TYHyZYjT/work-4.jpg",
       title: 'Digital Ads Analytics',
       description: 'Optimize ad spend and customer acquisition',
       category: 'restaurant'

@@ -37,8 +37,6 @@ export default function Home() {
             to_email: "",
         })
 
-        console.log(subFormData)
-
         // emailjs
 
         emailjs.sendForm('service_42k8hkj', 'template_m8rt5k8', formRef.current, 'KKZOtl3ghYad2H7Mq')
