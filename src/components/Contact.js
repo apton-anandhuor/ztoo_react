@@ -4,8 +4,11 @@ import { set, ref } from 'firebase/database'
 import { uid } from "uid"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import emailjs from '@emailjs/browser';
+import { useRef } from 'react';
 
 export default function Contact() {
+    const formRef = useRef();
     const [formData, setFormData] = useState(
         {
             name: "",
@@ -16,7 +19,7 @@ export default function Contact() {
     )
 
     function handleChange(event) {
-        const { name, value, type } = event.target
+        const { name, value } = event.target
         setFormData(prevFormData => {
             return {
                 ...prevFormData,
@@ -30,7 +33,7 @@ export default function Contact() {
         const uuid = uid()
         set(ref(db, `/${uuid}`), {
             formData,
-            uuid,
+            uuid
         });
 
         setFormData({
@@ -39,6 +42,13 @@ export default function Contact() {
             subject: "",
             comments: ""
         })
+
+        emailjs.sendForm('service_42k8hkj', 'template_jhq0q1s', formRef.current, 'KKZOtl3ghYad2H7Mq')
+            .then((result) => {
+                console.log(result.text);
+            }, (error) => {
+                console.log(error.text);
+            });
 
         // Toast Emitter
         toast.success('Message Sent Successfully!', {
@@ -50,7 +60,7 @@ export default function Contact() {
             draggable: true,
             progress: undefined,
             theme: "light",
-            });
+        });
     }
 
     return (
@@ -100,7 +110,7 @@ export default function Contact() {
                                 <div className="col-lg-8">
                                     <div className="custom-form">
                                         <div id="message"></div>
-                                        <form name="contact-form" id="contact-form" onSubmit={handleSubmit}>
+                                        <form name="contact-form" id="contact-form" onSubmit={handleSubmit} ref={formRef}>
                                             <div className="row">
                                                 <div className="col-lg-6">
                                                     <div className="form-group">
