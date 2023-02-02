@@ -6,6 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import emailjs from '@emailjs/browser';
 import { useRef } from 'react';
+import ReactGA from "react-ga4"
 
 export default function Contact() {
     const formRef = useRef();
@@ -61,6 +62,15 @@ export default function Contact() {
             progress: undefined,
             theme: "light",
         });
+    }
+
+    const onclick = () => {
+        ReactGA.event({
+            action: 'contact_action',
+            category: 'contact_ctegory',
+            label: 'contact_label',
+            value: 'xxxxx'
+        })
     }
 
     return (
@@ -177,7 +187,7 @@ export default function Contact() {
                                             <div className="row mt-3">
                                                 <div className="col-lg-12">
                                                     <input type="submit" id="submit" name="send"
-                                                        className="submitBnt btn btn-custom" value="Send Message" />
+                                                        className="submitBnt btn btn-custom" value="Send Message" onClick={onclick} />
                                                     <div id="simple-msg"></div>
                                                 </div>
                                             </div>

@@ -7,7 +7,7 @@ export default function Navbar() {
             {/* <!-- NAVBAR --> */}
             <nav className="navbar navbar-expand-lg fixed-top navbar-custom sticky" id="navbar">
                 <div className="container">
-                    <a className="navbar-brand logo" href="#"><img src={logo} width="22px" height="24px" />
+                    <a className="navbar-brand logo" href="#home"><img src={logo} width="22px" height="24px" alt='ztoo logo' />
                         ZTOO </a>
                     <button className="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

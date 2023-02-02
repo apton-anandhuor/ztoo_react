@@ -61,20 +61,17 @@ const Portfolio = ({ galleryImages }) => {
                 key={index}
                 onClick={() => handleOpenModal(index)}
               >
-                <div className={slide.category}>
-                  <div className="item-box">
-                    <a className="cbox-gallary1 mfp-image" title="Shopify Analytics">
-                      <img className={`item-container profile`} src={slide.img} alt='' />
-                      <div className="item-mask">
-                        <div className="item-caption">
-                          <h5 className="text-dark">{slide.title}</h5>
-                          <p className="text-muted">{slide.description}</p>
-                        </div>
+                <div className="item-box">
+                  <a className="cbox-gallary1 mfp-image" title={slide.title}>
+                    <img className={`item-container profile`} src={slide.img} alt='' />
+                    <div className="item-mask">
+                      <div className="item-caption">
+                        <h5 className="text-dark">{slide.title}</h5>
+                        <p className="text-muted">{slide.description}</p>
                       </div>
-                    </a>
-                  </div>
+                    </div>
+                  </a>
                 </div>
-                {/* <img src={slide.img} alt='' /> */}
               </div>
             )
           })

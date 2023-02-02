@@ -6,6 +6,8 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import emailjs from '@emailjs/browser';
 import { useRef } from 'react';
+import ReactGA from "react-ga4"
+
 
 export default function Home() {
     const formRef = useRef();
@@ -59,6 +61,15 @@ export default function Home() {
         });
     }
 
+    const onclick = () => {
+        ReactGA.event({
+            action: 'login_action',
+            category: 'login_ctegory',
+            label: 'login_label',
+            value: 'xxxxx'
+        })
+    }
+
     return (
         <div>
             {/* <!-- HOME START--> */}
@@ -85,7 +96,7 @@ export default function Home() {
                                                 onChange={handleChange}
                                                 value={subFormData.to_email}
                                                 required />
-                                            <button type="submit" className="btn btn-custom">SEE THE
+                                            <button type="submit" className="btn btn-custom" onClick={onclick}>SEE THE
                                                 DEMO</button>
                                         </form>
                                     </div>

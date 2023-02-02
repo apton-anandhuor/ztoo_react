@@ -54,18 +54,21 @@
 .sliderWrap .btnClose {
   top: 40px;
   right: 40px;
+  font-size: 1.25rem;
 }
 
 .sliderWrap .btnPrev {
   top: 50%;
   transform: translateY(-50%);
   left: 40px;
+  font-size: 1.25rem;
 }
 
 .sliderWrap .btnNext {
   top: 50%;
   transform: translateY(-50%);
   right: 40px;
+  font-size: 1.25rem;
 }
 
 .fullScreenImage {
