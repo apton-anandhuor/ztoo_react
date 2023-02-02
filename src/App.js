@@ -9,7 +9,6 @@ import Welcome from "./components/Welcome";
 import './assets/css/style.css'
 import './assets/css/owl.transitions.css'
 import Gallery from "./components/Gallery";
-
 function App() {
   return (
     <div>

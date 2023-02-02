@@ -17,7 +17,7 @@ export default function Footer() {
                                     <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/AskZtoo"><i
                                         className="mdi mdi-twitter twitter footer_mdi"></i></a>
                                     <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@ztoo"><img
-                                        src={YouTube} width="36px" height="36px" /></a>
+                                        src={YouTube} width="36px" height="36px" alt='youtube logo' /></a>
                                 </div>
                             </div>
                         </div>
@@ -26,11 +26,11 @@ export default function Footer() {
                             <div className="footer-menu">
                                 <h5 className="mb-4 text-uppercase">About</h5>
                                 <ul className="text-muted list-unstyled">
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">Press</a></li>
-                                    <li><a href="#">Job Opening</a></li>
-                                    <li><a href="#">Term</a></li>
-                                    <li><a href="#">Privacy</a></li>
+                                    <li><a href="#about">About Us</a></li>
+                                    <li><a href="#press">Press</a></li>
+                                    <li><a href="#job">Job Opening</a></li>
+                                    <li><a href="#term">Term</a></li>
+                                    <li><a href="#privacy">Privacy</a></li>
                                 </ul>
                             </div>
                         </div>

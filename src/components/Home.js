@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { db } from '../firebase'
 import { set, ref } from 'firebase/database'
 import { uid } from "uid"
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import emailjs from '@emailjs/browser';
 import { useRef } from 'react';

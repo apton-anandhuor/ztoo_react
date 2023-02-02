@@ -1,6 +1,8 @@
-import WSPGallery from "./Gallery/WSPGallery";
+import Portfolio from "./Gallery/Portfolio";
 
 function Gallery() {
+
+  // Images were added as links for passing as props to Portfolio Gallery Component.
 
   const galleryImages = [
     {
@@ -100,7 +102,7 @@ function Gallery() {
 
       {/* Gallery Starts */}
 
-      <WSPGallery
+      <Portfolio
         galleryImages={galleryImages}
       />
 
