@@ -22,13 +22,13 @@ export default function Navbar() {
                                 <a className="nav-link" href="#service">Services</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#portfolio">Works</a>
+                                <a className="nav-link" href="#portfolio">Portfolio</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#contact">Pricing</a>
+                                <a className="nav-link" href="#client">Testimonial</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#about">About</a>
+                                <a className="nav-link" href="#about">Clients</a>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="#contact">Contact</a>
