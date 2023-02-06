@@ -29,19 +29,33 @@ export default function Home() {
     }
 
     function handleSubmit(event) {
+        const identifier = "Subscriber Data";
         event.preventDefault()
         const uuid = uid()
-        set(ref(db, `/${uuid}`), {
-            subFormData,
-            uuid
+        set(ref(db, `/${identifier}/${uuid}`), {
+            subFormData
         });
 
         // emailjs
 
-        emailjs.sendForm(process.env.REACT_APP_EMAILJS_SERVICE_ID, 'template_m8rt5k8', formRef.current, process.env.REACT_APP_EMAILJS_PUBLIC_KEY)
+        emailjs.sendForm(process.env.REACT_APP_EMAILJS_SERVICE_ID,
+            process.env.REACT_APP_EMAILJS_SUB_TEMPLATE_ID,
+            formRef.current,
+            process.env.REACT_APP_EMAILJS_PUBLIC_KEY)
             .then((result) => {
                 console.log(result.text);
             }, (error) => {
+                // Toast Emitter
+                toast.error('An Error Occured!', {
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
                 console.log(error.text);
             });
 

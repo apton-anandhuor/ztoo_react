@@ -30,17 +30,31 @@ export default function Contact() {
     }
 
     function handleSubmit(event) {
+        const identifier = "Contact Form Data";
         event.preventDefault()
         const uuid = uid()
-        set(ref(db, `/${uuid}`), {
-            formData,
-            uuid
+        set(ref(db, `/${identifier}/${uuid}`), {
+            formData
         });
 
-        emailjs.sendForm(process.env.REACT_APP_EMAILJS_SERVICE_ID, 'template_jhq0q1s', formRef.current, process.env.REACT_APP_EMAILJS_PUBLIC_KEY)
+        emailjs.sendForm(process.env.REACT_APP_EMAILJS_SERVICE_ID,
+            process.env.REACT_APP_EMAILJS_CONTACT_TEMPLATE_ID,
+            formRef.current,
+            process.env.REACT_APP_EMAILJS_PUBLIC_KEY)
             .then((result) => {
                 console.log(result.text);
             }, (error) => {
+                // Toast Emitter
+                toast.error('Cant Send Message, An Error Occured!', {
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
                 console.log(error.text);
             });
 
