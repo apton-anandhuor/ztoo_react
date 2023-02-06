@@ -43,6 +43,17 @@ export default function Home() {
             formRef.current,
             process.env.REACT_APP_EMAILJS_PUBLIC_KEY)
             .then((result) => {
+                // Toast Emitter
+                toast.success('Subscribed Successfully!', {
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
                 console.log(result.text);
             }, (error) => {
                 // Toast Emitter
@@ -58,18 +69,6 @@ export default function Home() {
                 });
                 console.log(error.text);
             });
-
-        // Toast Emitter
-        toast.success('Subscribed Successfully!', {
-            position: "top-center",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-        });
 
         setSubFormData({
             to_email: "",

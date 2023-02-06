@@ -42,6 +42,17 @@ export default function Contact() {
             formRef.current,
             process.env.REACT_APP_EMAILJS_PUBLIC_KEY)
             .then((result) => {
+                // Toast Emitter
+                toast.success('Message Sent Successfully!', {
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
                 console.log(result.text);
             }, (error) => {
                 // Toast Emitter
@@ -57,18 +68,6 @@ export default function Contact() {
                 });
                 console.log(error.text);
             });
-
-        // Toast Emitter
-        toast.success('Message Sent Successfully!', {
-            position: "top-center",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-        });
 
         setFormData({
             name: "",
