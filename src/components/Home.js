@@ -36,13 +36,9 @@ export default function Home() {
             uuid
         });
 
-        setSubFormData({
-            to_email: "",
-        })
-
         // emailjs
 
-        emailjs.sendForm('service_42k8hkj', 'template_m8rt5k8', formRef.current, 'KKZOtl3ghYad2H7Mq')
+        emailjs.sendForm(process.env.REACT_APP_EMAILJS_SERVICE_ID, 'template_m8rt5k8', formRef.current, process.env.REACT_APP_EMAILJS_PUBLIC_KEY)
             .then((result) => {
                 console.log(result.text);
             }, (error) => {
@@ -60,6 +56,10 @@ export default function Home() {
             progress: undefined,
             theme: "light",
         });
+
+        setSubFormData({
+            to_email: "",
+        })
     }
 
     const onclick = () => {

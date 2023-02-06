@@ -37,14 +37,7 @@ export default function Contact() {
             uuid
         });
 
-        setFormData({
-            name: "",
-            email: "",
-            subject: "",
-            comments: ""
-        })
-
-        emailjs.sendForm('service_42k8hkj', 'template_jhq0q1s', formRef.current, 'KKZOtl3ghYad2H7Mq')
+        emailjs.sendForm(process.env.REACT_APP_EMAILJS_SERVICE_ID, 'template_jhq0q1s', formRef.current, process.env.REACT_APP_EMAILJS_PUBLIC_KEY)
             .then((result) => {
                 console.log(result.text);
             }, (error) => {
@@ -62,6 +55,13 @@ export default function Contact() {
             progress: undefined,
             theme: "light",
         });
+
+        setFormData({
+            name: "",
+            email: "",
+            subject: "",
+            comments: ""
+        })
     }
 
     const onclick = () => {

@@ -1,6 +1,15 @@
+import { useState } from "react";
 import Portfolio from "./Gallery/Portfolio";
 
 function Gallery() {
+
+  const [selectedFilter, setSelectedFilter] = useState('*');
+  // console.log(selectedFilter)
+
+  // const handleFilterClick = (filter) => {
+  //   console.log(filter)
+  //   setSelectedFilter(filter);
+  // }
 
   // Images were added as links for passing as props to Portfolio Gallery Component.
 
@@ -85,7 +94,7 @@ function Gallery() {
               <div className="text-center">
                 <ul className="col container-filter categories-filter list-unstyled mb-0" id="filter">
                   <li><a className="categories active" data-filter="*">All</a></li>
-                  <li><a className="categories" data-filter=".e-commerce">e-commerce</a></li>
+                  <li><a className="categories" data-filter=".e-commerce" onClick={() => {setSelectedFilter('e-commerce')}}>e-commerce</a></li>
                   <li><a className="categories" data-filter=".marketing">Marketing</a></li>
                   <li><a className="categories" data-filter=".restaurant">Restaurant</a></li>
                   <li><a className="categories" data-filter=".utilities">Utilities</a></li>
@@ -107,7 +116,7 @@ function Gallery() {
       />
 
       {/* Gallery Ends */}
-      
+
     </div>
 
   );
