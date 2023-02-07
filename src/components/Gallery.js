@@ -2,15 +2,6 @@ import { useState } from "react";
 import Portfolio from "./Gallery/Portfolio";
 
 function Gallery() {
-
-  const [filter, setFilter] = useState('all')
-
-  const handleClick = (filter) => {
-    setFilter(filter)
-  }
-
-  // Images were added as links for passing as props to Portfolio Gallery Component.
-
   const galleryImages = [
     {
       id: 1,
@@ -24,21 +15,21 @@ function Gallery() {
       img: "https://i.postimg.cc/vTZBNpc1/work-8.jpg",
       title: 'Restaurant Analytics',
       description: 'Analyze POS system data to improve efficiency',
-      category: 'e-commerce'
+      category: 'restaurant'
     },
     {
       id: 3,
       img: "https://i.postimg.cc/HkcJHD3X/work-3.jpg",
       title: 'Customer Analytics',
       description: 'Discover customer behavior and trends',
-      category: 'e-commerce'
+      category: 'e-commerce marketing restaurant'
     },
     {
       id: 4,
       img: "https://i.postimg.cc/DZg052yk/work-2.jpg",
       title: 'Social Media Analytics',
       description: 'Analyze KPIs of Marketing Campaigns to increase revenue growth',
-      category: 'restaurant'
+      category: 'marketing'
     },
     {
       id: 5,
@@ -52,29 +43,54 @@ function Gallery() {
       img: "https://i.postimg.cc/bJ8dQGP9/work-5.jpg",
       title: 'Clean Energy',
       description: 'Accelerate adoption of clean energy',
-      category: 'restaurant'
+      category: 'utilities iot'
     },
     {
       id: 7,
       img: "https://i.postimg.cc/d3skKhSV/work-7.jpg",
       title: 'EV Analytics',
       description: 'Manage EV fleet and V2X capabilities',
-      category: 'restaurant'
+      category: 'utilities iot'
     },
     {
       id: 8,
       img: "https://i.postimg.cc/TYHyZYjT/work-4.jpg",
       title: 'Digital Ads Analytics',
       description: 'Optimize ad spend and customer acquisition',
-      category: 'e-commerce'
+      category: 'e-commerce marketing'
     }
   ]
 
-  // const data = galleryImages.map(data => {
-  //   return data.category === filter ? "Hello" : "Gello"
-  // })
+  const [filter, setFilter] = useState('all')
 
-  // console.log(data)
+  const handleClick = (filter) => {
+    setFilter(filter)
+  }
+  //  let galleryImages1 = galleryImages.filter((data) => {
+
+  //     if (data.category === filter) {
+  //       return data
+  //     }
+  //     else if (filter === 'all') {
+  //       return data
+  //     }
+
+  // })
+  let galleryImages1 = []
+  let count
+  galleryImages.forEach((item) => {
+    count=0
+    item.category.split(' ').forEach((element) => {
+      count=count+1
+      if (element === filter) {
+        galleryImages1.push(item)
+      }
+      else if (filter === 'all' && count === 1) {
+        galleryImages1.push(item)
+      }
+    })
+  })
+
 
   return (
     <div>
@@ -97,12 +113,12 @@ function Gallery() {
             <div className="col-lg-12">
               <div className="text-center">
                 <ul className="col container-filter categories-filter list-unstyled mb-0" id="filter">
-                  <li><button className="categories active" data-filter="*" onClick={(e) => handleClick("all")}>All</button></li>
-                  <li><button className="categories" data-filter=".e-commerce" onClick={(e) => handleClick("e-commerce")}>e-commerce</button></li>
-                  <li><button className="categories" data-filter=".marketing" onClick={(e) => handleClick("marketing")}>Marketing</button></li>
-                  <li><button className="categories" data-filter=".restaurant" onClick={(e) => handleClick("restaurant")}>Restaurant</button></li>
-                  <li><button className="categories" data-filter=".utilities" onClick={(e) => handleClick("utilities")}>Utilities</button></li>
-                  <li><button className="categories" data-filter=".iot" onClick={(e) => handleClick("iot")}>IOT</button></li>
+                  <li><button className={filter==='all'? 'btnActive categories' : 'categories'} data-filter="*" onClick={(e) => handleClick("all")}>All</button></li>
+                  <li><button className={filter==='e-commerce'? 'btnActive categories' : 'categories'} data-filter=".e-commerce" onClick={(e) => handleClick("e-commerce")}>e-commerce</button></li>
+                  <li><button className={filter==='marketing'? 'btnActive categories' : 'categories'} data-filter=".marketing" onClick={(e) => handleClick("marketing")}>Marketing</button></li>
+                  <li><button className={filter==='restaurant'? 'btnActive categories' : 'categories'} data-filter=".restaurant" onClick={(e) => handleClick("restaurant")}>Restaurant</button></li>
+                  <li><button className={filter==='utilities'? 'btnActive categories' : 'categories'} data-filter=".utilities" onClick={(e) => handleClick("utilities")}>Utilities</button></li>
+                  <li><button className={filter==='iot'? 'btnActive categories' : 'categories'} data-filter=".iot" onClick={(e) => handleClick("iot")}>IOT</button></li>
                 </ul>
               </div>
             </div>
@@ -116,7 +132,7 @@ function Gallery() {
       {/* Gallery Starts */}
 
       <Portfolio
-        galleryImages={galleryImages}
+        galleryImages={galleryImages1}
         filter={filter}
       />
 

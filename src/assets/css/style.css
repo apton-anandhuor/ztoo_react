@@ -750,6 +750,11 @@ p {
     background-color: #3864f3;
 }
 
+.btnActive{
+    background-color: #3864f3;
+    color: white;
+}
+
 /*************************
       9.  BLOG
 ***************************/
