@@ -9,10 +9,13 @@ import {
 
 import './portfolio.css'
 
-const Portfolio = ({ galleryImages }) => {
+const Portfolio = ({ galleryImages, filter }) => {
 
   const [slideNumber, setSlideNumber] = useState(0)
   const [openModal, setOpenModal] = useState(false)
+
+  // console.log(filter)
+  // console.log(galleryImages[1].category)
 
   const handleOpenModal = (index) => {
     setSlideNumber(index)
@@ -61,7 +64,7 @@ const Portfolio = ({ galleryImages }) => {
                 key={index}
                 onClick={() => handleOpenModal(index)}
               >
-                <div className="item-box">
+                {/* <div className="item-box">
                   <a className="cbox-gallary1 mfp-image" title={slide.title}>
                     <img className={`item-container profile`} src={slide.img} alt='' />
                     <div className="item-mask">
@@ -71,7 +74,34 @@ const Portfolio = ({ galleryImages }) => {
                       </div>
                     </div>
                   </a>
-                </div>
+                </div> */}
+                
+                {slide.category === filter ?
+                  <div className="item-box">
+                    <a className="cbox-gallary1 mfp-image" title={slide.title}>
+                      <img className={`item-container profile`} src={slide.img} alt='' />
+                      <div className="item-mask">
+                        <div className="item-caption">
+                          <h5 className="text-dark">{slide.title}</h5>
+                          <p className="text-muted">{slide.description}</p>
+                        </div>
+                      </div>
+                    </a>
+                  </div> : 
+                  'all' === filter ?
+                  <div className="item-box">
+                  <a className="cbox-gallary1 mfp-image" title={slide.title}>
+                    <img className={`item-container profile`} src={slide.img} alt='' />
+                    <div className="item-mask">
+                      <div className="item-caption">
+                        <h5 className="text-dark">{slide.title}</h5>
+                        <p className="text-muted">{slide.description}</p>
+                      </div>
+                    </div>
+                  </a>
+                </div> : <div style={{display: 'none'}}></div>
+                  }
+
               </div>
             )
           })

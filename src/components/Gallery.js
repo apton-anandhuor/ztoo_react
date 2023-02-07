@@ -3,6 +3,12 @@ import Portfolio from "./Gallery/Portfolio";
 
 function Gallery() {
 
+  const [filter, setFilter] = useState('all')
+
+  const handleClick = (filter) => {
+    setFilter(filter)
+  }
+
   // Images were added as links for passing as props to Portfolio Gallery Component.
 
   const galleryImages = [
@@ -11,7 +17,7 @@ function Gallery() {
       img: 'https://i.postimg.cc/8z30JNT4/work-1.jpg',
       title: 'Shopify Store Analytics',
       description: 'Analyze and improve key metrics for your shopify store',
-      category: 'restaurant'
+      category: 'e-commerce'
     },
     {
       id: 2,
@@ -60,9 +66,15 @@ function Gallery() {
       img: "https://i.postimg.cc/TYHyZYjT/work-4.jpg",
       title: 'Digital Ads Analytics',
       description: 'Optimize ad spend and customer acquisition',
-      category: 'restaurant'
+      category: 'e-commerce'
     }
   ]
+
+  // const data = galleryImages.map(data => {
+  //   return data.category === filter ? "Hello" : "Gello"
+  // })
+
+  // console.log(data)
 
   return (
     <div>
@@ -85,12 +97,12 @@ function Gallery() {
             <div className="col-lg-12">
               <div className="text-center">
                 <ul className="col container-filter categories-filter list-unstyled mb-0" id="filter">
-                  <li><a className="categories active" data-filter="*">All</a></li>
-                  <li><a className="categories" data-filter=".e-commerce">e-commerce</a></li>
-                  <li><a className="categories" data-filter=".marketing">Marketing</a></li>
-                  <li><a className="categories" data-filter=".restaurant">Restaurant</a></li>
-                  <li><a className="categories" data-filter=".utilities">Utilities</a></li>
-                  <li><a className="categories" data-filter=".iot">IOT</a></li>
+                  <li><button className="categories active" data-filter="*" onClick={(e) => handleClick("all")}>All</button></li>
+                  <li><button className="categories" data-filter=".e-commerce" onClick={(e) => handleClick("e-commerce")}>e-commerce</button></li>
+                  <li><button className="categories" data-filter=".marketing" onClick={(e) => handleClick("marketing")}>Marketing</button></li>
+                  <li><button className="categories" data-filter=".restaurant" onClick={(e) => handleClick("restaurant")}>Restaurant</button></li>
+                  <li><button className="categories" data-filter=".utilities" onClick={(e) => handleClick("utilities")}>Utilities</button></li>
+                  <li><button className="categories" data-filter=".iot" onClick={(e) => handleClick("iot")}>IOT</button></li>
                 </ul>
               </div>
             </div>
@@ -105,6 +117,7 @@ function Gallery() {
 
       <Portfolio
         galleryImages={galleryImages}
+        filter={filter}
       />
 
       {/* Gallery Ends */}

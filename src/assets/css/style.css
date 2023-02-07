@@ -47,7 +47,7 @@ a {
     outline: none !important;
 }
 
-p{
+p {
     line-height: 1.8;
 }
 
@@ -105,7 +105,7 @@ p{
 .btn-custom-white:active,
 .btn-custom-white:focus,
 .btn-custom-white:hover,
-.open > .dropdown-toggle.btn-custom-white {
+.open>.dropdown-toggle.btn-custom-white {
     background: #f1f0f0;
     box-shadow: none !important;
 }
@@ -123,11 +123,11 @@ p{
     letter-spacing: 0.9px;
     font-weight: 500;
     text-transform: uppercase;
-    transition: box-shadow .25s ease,transform .25s ease,-webkit-transform .25s ease;
+    transition: box-shadow .25s ease, transform .25s ease, -webkit-transform .25s ease;
 }
 
 .btn:hover {
-    transform: translate3d(0,-3px,0);
+    transform: translate3d(0, -3px, 0);
     background: #3864f3;
 }
 
@@ -135,11 +135,11 @@ p{
     padding: 10px 22px;
 }
 
-.text-custom{
+.text-custom {
     color: #3864f3;
 }
 
-.bg-custom{
+.bg-custom {
     background-color: #3864f3;
 }
 
@@ -256,7 +256,7 @@ p{
 }
 
 .nav-sticky.navbar-custom .navbar-nav li a {
-   color: #2f3545;
+    color: #2f3545;
 }
 
 .nav-sticky.navbar-custom .navbar-nav li.active a,
@@ -287,7 +287,7 @@ p{
     font-size: 1.5rem;
 }
 
-.title h1{
+.title h1 {
     position: absolute;
     color: rgba(0, 0, 0, 0.1);
     left: 0px;
@@ -349,7 +349,7 @@ p{
     background-size: cover;
 }
 
-.clients-img{
+.clients-img {
     position: absolute;
     top: 108px;
 }
@@ -473,7 +473,7 @@ p{
     5. Welcome box
 *************************/
 
-.features h5 svg{
+.features h5 svg {
     height: 48px;
     width: 48px;
     fill: rgba(255, 99, 72, 0.2);
@@ -490,14 +490,14 @@ p{
     height: 54px;
     border: 2px solid rgba(21, 101, 216, 0.1);
     border-radius: 15px;
-  }
-  
-  .features-icon i {
+}
+
+.features-icon i {
     color: #3864f3 !important;
     line-height: 54px;
     font-size: 22px;
-  }
-  
+}
+
 
 /************************
    6. SERVICES
@@ -689,7 +689,7 @@ p{
     overflow: hidden;
 }
 
-.item-mask h5{
+.item-mask h5 {
     font-size: 16px;
 }
 
@@ -727,6 +727,27 @@ p{
     background-size: cover;
     background-position: center center;
     position: relative;
+}
+
+.categories {
+    display: block;
+    font-size: 10px;
+    border: 1px solid #e0e0e0;
+    padding: 0px 15px;
+    margin: 5px 3px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    line-height: 35px;
+    border-radius: 3px;
+    color: #75757d;
+    background-color: white;
+}
+
+.categories:hover{
+    color: white;
+    background-color: #3864f3;
 }
 
 /*************************
@@ -805,7 +826,7 @@ p{
        11. PRICE
 **************************/
 
-.price{
+.price {
     box-shadow: 0px 40px 40px rgba(0, 0, 0, 0.05);
     border-radius: 12px;
 }
@@ -918,7 +939,7 @@ textarea.form-control {
        13. FOOTER
 *************************/
 
-.footer{
+.footer {
     padding-top: 80px;
     padding-bottom: 40px;
     color: #818d9c;
@@ -975,7 +996,7 @@ textarea.form-control {
     display: inline-block;
     transition: all 0.5s;
     line-height: 32px;
-    color: #818d9c!important;
+    color: #818d9c !important;
 }
 
 
@@ -987,6 +1008,7 @@ textarea.form-control {
     .vertical-content {
         display: inherit;
     }
+
     .navbar-custom {
         margin-top: 0px;
         padding: 10px 0px !important;
@@ -994,28 +1016,34 @@ textarea.form-control {
         box-shadow: 0 10px 33px rgba(0, 0, 0, .1);
         color: #fff !important;
     }
+
     .navbar-toggler i {
         font-size: 24px;
         margin-top: 0px;
         margin-bottom: 0px;
         color: #ffffff;
     }
+
     .bg-home {
         height: auto;
     }
+
     .nav-sticky.navbar-custom .navbar-nav li a {
         color: #fff !important;
     }
+
     .nav-sticky .logo {
         color: #fff !important;
     }
+
     .navbar-custom>.container {
         width: 90%;
     }
+
     .clients-img {
         display: none;
     }
-    
+
 }
 
 @media (min-width:768px) and (max-width: 1024px) {
