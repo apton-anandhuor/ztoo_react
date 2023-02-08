@@ -10,8 +10,7 @@ import './assets/css/style.css'
 import './assets/css/owl.transitions.css'
 import Gallery from "./components/Gallery";
 import ReactGA from "react-ga4"
-import SendGrid from "./components/MailchimpContainer";
-import MailchimpFormContainer from "./components/MailchimpContainer";
+// import MailchimpFormContainer from "./components/MailchimpContainer";
 
 ReactGA.initialize("G-K7YJ0JRMXN")
 ReactGA.send({ hitType: "pageview", page: "/" });
@@ -26,7 +25,7 @@ function App() {
       <Client />
       <Team />
       <CTA />
-      <MailchimpFormContainer />
+      {/* <MailchimpFormContainer /> */}
       <Contact />
       <Footer />
     </div >

@@ -5,56 +5,56 @@ function Gallery() {
   const galleryImages = [
     {
       id: 1,
-      img: 'https://i.postimg.cc/8z30JNT4/work-1.jpg',
+      img: 'https://storage.googleapis.com/ztoo-assets/portfolio/work-1.jpg',
       title: 'Shopify Store Analytics',
       description: 'Analyze and improve key metrics for your shopify store',
       category: 'e-commerce'
     },
     {
       id: 2,
-      img: "https://i.postimg.cc/vTZBNpc1/work-8.jpg",
+      img: "https://storage.googleapis.com/ztoo-assets/portfolio/work-8.jpg",
       title: 'Restaurant Analytics',
       description: 'Analyze POS system data to improve efficiency',
       category: 'restaurant'
     },
     {
       id: 3,
-      img: "https://i.postimg.cc/HkcJHD3X/work-3.jpg",
+      img: "https://storage.googleapis.com/ztoo-assets/portfolio/work-3.jpg",
       title: 'Customer Analytics',
       description: 'Discover customer behavior and trends',
       category: 'e-commerce marketing restaurant'
     },
     {
       id: 4,
-      img: "https://i.postimg.cc/DZg052yk/work-2.jpg",
+      img: "https://storage.googleapis.com/ztoo-assets/portfolio/work-2.jpg",
       title: 'Social Media Analytics',
       description: 'Analyze KPIs of Marketing Campaigns to increase revenue growth',
       category: 'marketing'
     },
     {
       id: 5,
-      img: "https://i.postimg.cc/9FfR8q7x/work-6.jpg",
+      img: "https://storage.googleapis.com/ztoo-assets/portfolio/work-6.jpg",
       title: 'Internet of Things',
       description: 'Industrial IOT sensor data analytics',
       category: 'iot'
     },
     {
       id: 6,
-      img: "https://i.postimg.cc/bJ8dQGP9/work-5.jpg",
+      img: "https://storage.googleapis.com/ztoo-assets/portfolio/work-5.jpg",
       title: 'Clean Energy',
       description: 'Accelerate adoption of clean energy',
       category: 'utilities iot'
     },
     {
       id: 7,
-      img: "https://i.postimg.cc/d3skKhSV/work-7.jpg",
+      img: "https://storage.googleapis.com/ztoo-assets/portfolio/work-7.jpg",
       title: 'EV Analytics',
       description: 'Manage EV fleet and V2X capabilities',
       category: 'utilities iot'
     },
     {
       id: 8,
-      img: "https://i.postimg.cc/TYHyZYjT/work-4.jpg",
+      img: "https://storage.googleapis.com/ztoo-assets/portfolio/work-4.jpg",
       title: 'Digital Ads Analytics',
       description: 'Optimize ad spend and customer acquisition',
       category: 'e-commerce marketing'
@@ -79,9 +79,9 @@ function Gallery() {
   let galleryImages1 = []
   let count
   galleryImages.forEach((item) => {
-    count=0
+    count = 0
     item.category.split(' ').forEach((element) => {
-      count=count+1
+      count = count + 1
       if (element === filter) {
         galleryImages1.push(item)
       }
@@ -113,12 +113,52 @@ function Gallery() {
             <div className="col-lg-12">
               <div className="text-center">
                 <ul className="col container-filter categories-filter list-unstyled mb-0" id="filter">
-                  <li><button className={filter==='all'? 'btnActive categories' : 'categories'} data-filter="*" onClick={(e) => handleClick("all")}>All</button></li>
-                  <li><button className={filter==='e-commerce'? 'btnActive categories' : 'categories'} data-filter=".e-commerce" onClick={(e) => handleClick("e-commerce")}>e-commerce</button></li>
-                  <li><button className={filter==='marketing'? 'btnActive categories' : 'categories'} data-filter=".marketing" onClick={(e) => handleClick("marketing")}>Marketing</button></li>
-                  <li><button className={filter==='restaurant'? 'btnActive categories' : 'categories'} data-filter=".restaurant" onClick={(e) => handleClick("restaurant")}>Restaurant</button></li>
-                  <li><button className={filter==='utilities'? 'btnActive categories' : 'categories'} data-filter=".utilities" onClick={(e) => handleClick("utilities")}>Utilities</button></li>
-                  <li><button className={filter==='iot'? 'btnActive categories' : 'categories'} data-filter=".iot" onClick={(e) => handleClick("iot")}>IOT</button></li>
+                  <li>
+                    <button
+                      className={filter === 'all' ? 'btnActive categories' : 'categories'}
+                      data-filter="*"
+                      onClick={(e) => handleClick("all")}>
+                      All
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      className={filter === 'e-commerce' ? 'btnActive categories' : 'categories'}
+                      data-filter=".e-commerce"
+                      onClick={(e) => handleClick("e-commerce")}>
+                      e-commerce
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      className={filter === 'marketing' ? 'btnActive categories' : 'categories'}
+                      data-filter=".marketing"
+                      onClick={(e) => handleClick("marketing")}>
+                      Marketing
+                    </button>
+                  </li>
+                  <li><button
+                    className={filter === 'restaurant' ? 'btnActive categories' : 'categories'}
+                    data-filter=".restaurant"
+                    onClick={(e) => handleClick("restaurant")}>
+                    Restaurant
+                  </button>
+                  </li>
+                  <li><button
+                    className={filter === 'utilities' ? 'btnActive categories' : 'categories'}
+                    data-filter=".utilities"
+                    onClick={(e) => handleClick("utilities")}>
+                    Utilities
+                  </button>
+                  </li>
+                  <li>
+                    <button
+                      className={filter === 'iot' ? 'btnActive categories' : 'categories'}
+                      data-filter=".iot"
+                      onClick={(e) => handleClick("iot")}>
+                      IOT
+                    </button>
+                  </li>
                 </ul>
               </div>
             </div>
