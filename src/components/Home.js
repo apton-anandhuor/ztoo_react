@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { db } from '../firebase'
-import { set, ref } from 'firebase/database'
+import { set, ref, push } from 'firebase/database'
 import { uid } from "uid"
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -29,12 +29,21 @@ export default function Home() {
     }
 
     function handleSubmit(event) {
-        const identifier = "Subscriber Data";
         event.preventDefault()
-        const uuid = uid()
-        set(ref(db, `/${identifier}/${uuid}`), {
-            subFormData
+
+        const identifier = "subscriberData";
+        const today = new Date().toISOString().slice(0, 10);
+
+        const subscriberDataRef = ref(db, `subscriberData/${today}`);
+
+        push(subscriberDataRef, {
+            to_email: subFormData.to_email
         });
+        
+        // const uuid = uid()
+        // set(ref(db, `/${identifier}/${uuid}`), {
+        //     subFormData
+        // });
 
         // emailjs
 
