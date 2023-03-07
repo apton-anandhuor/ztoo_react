@@ -16,8 +16,23 @@ ReactGA.send({ hitType: "pageview", page: "/" });
 
 function App() {
   return (
-    <div>
-      <Navbar />
+    
+    <div className="container">
+      <div class="row gx-5">
+        <div class="col-lg-5 " style={{width:'100%',height:'100px',background:'blue'}}></div>
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-7  " style={{width:'100%',height:'100px',background:'black'}}></div>
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 " style={{width:'100%',height:'100px',background:'red'}}></div>
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2  " style={{width:'100%',height:'100px',background:'green'}}></div>
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2  " style={{width:'100%',height:'100px',background:'yellow'}}></div>
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 " style={{width:'100%',height:'100px',background:'blue'}}></div>
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2  " style={{width:'100%',height:'100px',background:'black'}}></div>
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2  " style={{width:'100%',height:'100px',background:'red'}}></div>
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2  " style={{width:'100%',height:'100px',background:'green'}}></div>
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2  " style={{width:'100%',height:'100px',background:'yellow'}}></div>
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 " style={{width:'100%',height:'100px',background:'blue'}}></div>
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2  " style={{width:'100%',height:'100px',background:'black'}}></div>
+      </div>
+      {/* <Navbar />
       <Home />
       <Welcome />
       <Gallery />
@@ -25,7 +40,7 @@ function App() {
       <Team />
       <CTA />
       <Contact />
-      <Footer />
+      <Footer /> */}
     </div >
   );
 }
