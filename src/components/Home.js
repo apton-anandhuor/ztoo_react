@@ -38,11 +38,6 @@ export default function Home() {
         push(subscriberDataRef, {
             to_email: subFormData.to_email
         });
-        
-        // const uuid = uid()
-        // set(ref(db, `/${identifier}/${uuid}`), {
-        //     subFormData
-        // });
 
         // emailjs
 
