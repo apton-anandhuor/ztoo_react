@@ -30,7 +30,7 @@ export default function Contact() {
     }
 
     function handleSubmit(event) {
-        const identifier = "Contact Form Data";
+        const identifier = "contactFormData";
         event.preventDefault()
         const uuid = uid()
         set(ref(db, `/${identifier}/${uuid}`), {
